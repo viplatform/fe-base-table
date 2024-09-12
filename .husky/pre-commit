@@ -1,0 +1,7 @@
+# Run lint before commit
+
+npm run lint:fix
+
+# Run code formatter before commit
+
+npm run format
