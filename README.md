@@ -47,6 +47,11 @@ npx storybook@latest init
 - In `package.json`, replace `your-package-name` with your desired package name.
 - Update the `description` and `author` fields in `package.json` with relevant information.
 - Replace all instances of `fe-node-package-boilerplate` with your repository name.
+- Go to the `src` folder and rename the `YourComponent` folder with your desired component name.
+- Rename the `YourComponent.stories.tsx` file inside the `src` folder with `<your desired component name>.stories.tsx`.
+- Replace `YourComponent` inside the `YourComponent.stories.tsx` file with the component you have created.
+- Rename the `Component` with your desired component name.
+- Rename the component name inside `index.tsx` and start writing your code.
 
 ## Usage
 
