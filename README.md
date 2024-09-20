@@ -1,70 +1,115 @@
-# fe-node-package-boilerplate
+# BaseTable
 
-A boilerplate repository for creating npm packages for commonly used components at Virtual Internships. This boilerplate is designed to streamline the process of setting up packages with best practices, using React, TypeScript, Tailwind CSS, and more.
+`BaseTable` is a React component which is built to share the boilerplate code of Material React Table V3 across different projects.
+
+---
 
 ## Features
 
-- **React & TypeScript**: Build reusable and type-safe components.
-- **Tailwind CSS**: Quickly style your components with utility-first CSS.
-- **Jest & React Testing Library**: Ensure code quality with unit tests and component tests.
-- **ESLint & Prettier**: Maintain code consistency and readability.
-- **Husky**: Pre-commit hooks to enforce linting and formatting.
-- **GitHub Actions**: Automate package publishing workflows.
-- **Rollup**: Efficient bundling for npm packages.
-- **Storybook (Optional)**: Isolated development and documentation for components.
+https://www.material-react-table.com/
 
-## Getting Started
+## Repo
 
-Follow these steps to use this boilerplate for creating your own npm package.
+https://github.com/KevinVandy/material-react-table
 
-### 1. Clone the repository
+## Storybook
 
-```bash
-git clone https://github.com/viplatform/fe-node-package-boilerplate.git
-cd fe-node-package-boilerplate
-```
+https://www.material-react-table.dev/?path=/story/features-row-pinning-examples--row-pinning-sticky-default-enabled
 
-### 2. Install dependencies
+---
 
-```bash
-npm install
-```
+## Setup
 
-> **Note:** Node.js version 20+ is required.
+To run this repository locally, follow these steps (ensure you're using Node version 20+):
 
-### 3. (Optional) Initialize Storybook
+1. **Clone this repo**
+   ```bash
+      git clone https://github.com/viplatform/fe-base-table.git
+   ```
+2. **Install dependencies**
+   ```bash
+      npm run install
+   ```
 
-If you wish to include Storybook in your project:
+---
 
-```bash
-npx storybook@latest init
-```
+## Changes
 
-- When prompted, select **Vite** as the bundler.
+Before committing any new changes, ensure everything is working correctly by running the following commands:
 
-### 4. Customize the project
+1. **Fix Linting Issues**
 
-- In `package.json`, replace `your-package-name` with your desired package name.
-- Update the `description` and `author` fields in `package.json` with relevant information.
-- Replace all instances of `fe-node-package-boilerplate` with your repository name.
-- Go to the `src` folder and rename the `YourComponent` folder with your desired component name.
-- Rename the `YourComponent.stories.tsx` file inside the `src` folder with `<your desired component name>.stories.tsx`.
-- Replace `YourComponent` inside the `YourComponent.stories.tsx` file with the component you have created.
-- Rename the `Component` with your desired component name.
-- Rename the component name inside `index.tsx` and start writing your code.
+   ```bash
+   npm run lint:fix
+   ```
 
-## Usage
+2. **Build the Project**
 
-Once the setup is complete, you can start building your components and easily publish them to npm.
+   ```bash
+   npm run build
+   ```
 
-## Scripts
+Make sure all of the above commands run without errors before committing your changes.
 
-- `npm run build`: Bundles the package using Rollup.
-- `npm test`: Runs unit tests using Jest and React Testing Library.
-- `npm run lint`: Lints your codebase with ESLint.
-- `npm run format`: Formats code using Prettier.
-- `npm run storybook`: (Optional) Starts the Storybook environment for component development.
+---
 
-## License
+## Commit Lint pre-commit hook rules reference link
 
-This project is licensed under the MIT License.
+1. The commit message will be always in this format type(scope): subject (BLANK LINE) body (BLANK LINE) footer
+2. The type is mandatory and determines the intent of the change. Here are possible values:
+   - build: changes affecting build systems or external dependencies
+   - ci: updating configuration files for continuous integration and deployment services
+   - chore: updating grunt tasks etc.; no production code change
+   - docs: documentation-only changes
+   - feat: a new feature
+   - fix: a bug fix
+   - perf: a code change that improves performance
+   - refactor: a code change that neither fixes a bug nor adds a feature
+   - style: changes that do not affect the meaning of the code (white-space, formatting, missing semicolons, etc.)
+   - test: adding missing tests or correcting existing tests
+3. A scope is an optional value that provides additional contextual information about the change. For example, when the module’s name, npm package, or particular routine was affected. The scope, when present, must be contained within parenthesis.
+4. The subject is the headline of the commit. It should summarize in one sentence the nature of change.
+5. Example of few commit messages :
+   - docs(changelog): update changelog to beta.5
+   - fix(release): need to depend on latest rxjs and zone.js
+6. More refrences
+   - [What is commitlint](https://github.com/conventional-changelog/commitlint/#what-is-commitlint)
+   - [Best practices around commitlint](https://www.freecodecamp.org/news/how-to-use-commitlint-to-write-good-commit-messages/)
+   - [Official commitlint github page](https://github.com/conventional-changelog/commitlint)
+
+---
+
+## Installation of the package in other repos
+
+To install the `BaseTable` package, follow these steps:
+
+1. **Generate a GitHub Access Token**
+
+   You need a GitHub access token to access private GitHub packages. To generate one:
+
+   - Go to [GitHub Settings](https://github.com/settings/tokens).
+   - Click **Generate new token**.
+   - Give your token a descriptive name and select the scopes`read:packages` & `repo` for accessing packages.
+   - Click **Generate token** and copy the token.
+
+2. **Create a `.npmrc` File**
+
+   Create a `.npmrc` file in your project root with the following configuration:
+
+   ```
+   @viplatform:registry=https://npm.pkg.github.com
+   //npm.pkg.github.com/:_authToken=YOUR_GITHUB_ACCESS_TOKEN
+
+   ```
+
+3. **Install package**
+
+   ```bash
+   npm install @viplatform/fe-base-table
+   ```
+
+   or with yarn:
+
+   ```bash
+   yarn add @viplatform/fe-base-table
+   ```

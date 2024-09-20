@@ -1,8 +1,8 @@
-import YourComponent from '.';
+import BaseTable from '.';
 
 export default {
-  title: 'MyComponents/YourComponent',
-  component: YourComponent,
+  title: 'MyComponents/BaseTable',
+  component: BaseTable,
   parameters: {
     layout: 'centered',
   },

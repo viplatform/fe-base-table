@@ -1,3 +1,3 @@
 import './tailwind.css';
 
-export { default as YourComponent } from './YourComponent';
+export { default as BaseTable } from './BaseTable';
