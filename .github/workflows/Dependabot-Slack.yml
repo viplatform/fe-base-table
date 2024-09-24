@@ -1,8 +1,8 @@
 name: 'Dependabot-Critical-Slack-Alerts'
 
 on:
-  # schedule:
-  #   - cron: '0 0 * * *' # every 6 hours
+  schedule:
+    - cron: '0 0 * * *' # every midnight GMT
   workflow_dispatch:  # Allow manual triggering
 jobs:
   main:
@@ -14,5 +14,5 @@ jobs:
         with:
           token: ${{ secrets.GH_PAT }}
           severity: critical
-          slack_webhook: ${{ secrets.DBOT_SLACK_BOT_TOKEN }}
+          slack_webhook: ${{ secrets.SLACK_VULNERABILITY_ALERTS_TOKEN }}
           count: 20
