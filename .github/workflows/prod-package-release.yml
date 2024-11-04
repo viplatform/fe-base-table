@@ -41,6 +41,11 @@ jobs:
         with:
           envkey_REACT_APP_ASSET_BASE_URL: 'https://assets.virtualinternships.com/base-table'
 
+      - name: Make envfile
+        uses: SpicyPizza/create-envfile@v2.0
+        with:
+          envkey_REACT_APP_ASSET_BASE_URL: 'https://assets.virtualinternships.com/base-table'
+
       - name: Setup Nodejs and npm
         uses: actions/setup-node@v4
         with:
