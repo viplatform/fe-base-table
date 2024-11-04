@@ -3,16 +3,12 @@ import {
   useMaterialReactTable,
   type MRT_ColumnDef as columnType,
 } from 'material-react-table';
-import {
-  ColumnOrderState,
-  OnChangeFn,
-  PaginationState,
-  VisibilityState,
-} from '@tanstack/react-table';
+import { OnChangeFn, PaginationState } from '@tanstack/react-table';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+import NoDataError from './components/NoDataError';
 
-export interface IBaseTable {
+interface IBaseTable {
   data: { [key: string]: unknown }[];
   columns: { [key: string]: unknown }[] | unknown;
   enableColumnActions?: boolean;
@@ -25,6 +21,8 @@ export interface IBaseTable {
   enableCellActions?: boolean;
   showColumnFilters?: boolean;
   showGlobalFilter?: boolean;
+  enableGlobalFilter?: boolean;
+  enableToolbarInternalActions?: boolean;
   columnVisibility?: { [key: string]: boolean };
   enableStickyHeader?: boolean;
   visibleInShowHideMenu?: boolean;
@@ -47,13 +45,14 @@ export interface IBaseTable {
   muiPaginationProps?: { [key: string]: unknown };
   muiTableHeadCellProps?: { [key: string]: unknown };
   maxHeight?: string;
+  searchBoxPlaceholder?: string;
   pagination?: PaginationState;
-  onColumnOrderChange?: OnChangeFn<ColumnOrderState>;
-  onColumnVisibilityChange?: OnChangeFn<VisibilityState>;
+  onColumnOrderChange?: (e: unknown) => void;
+  onColumnVisibilityChange?: (e: unknown) => void;
   renderDetailPanel?: () => JSX.Element;
   renderEmptyRowsFallback?: () => JSX.Element;
-  renderTopToolbarCustomActions?: () => JSX.Element;
-  renderToolbarInternalActions?: () => JSX.Element;
+  renderTopToolbarCustomActions?: (e: unknown) => JSX.Element;
+  renderToolbarInternalActions?: (e: unknown) => JSX.Element;
   onPaginationChange?: OnChangeFn<PaginationState> | undefined;
   onGlobalFilterChange?: (searchText: string) => void;
 }
@@ -74,6 +73,8 @@ const BaseTable = ({
   enableExpandAll = true,
   enablePagination = true,
   showGlobalFilter = true,
+  enableGlobalFilter = true,
+  enableToolbarInternalActions = true,
   enableStickyHeader = true,
   manualPagination = true,
   enableTopToolbar = true,
@@ -94,11 +95,12 @@ const BaseTable = ({
   muiTableHeadCellProps,
   maxHeight = '600px',
   pagination,
+  searchBoxPlaceholder = 'Search',
   onColumnOrderChange,
   onColumnVisibilityChange,
   onGlobalFilterChange,
   renderDetailPanel,
-  renderEmptyRowsFallback,
+  renderEmptyRowsFallback = () => <NoDataError />,
   onPaginationChange,
   renderTopToolbarCustomActions,
   renderToolbarInternalActions,
@@ -114,6 +116,8 @@ const BaseTable = ({
     enableFullScreenToggle,
     enableSorting,
     enableCellActions,
+    enableGlobalFilter,
+    enableToolbarInternalActions,
     initialState: {
       showColumnFilters,
       showGlobalFilter,
@@ -156,6 +160,12 @@ const BaseTable = ({
         color: '#000000de',
       },
     },
+    muiSearchTextFieldProps: {
+      placeholder: searchBoxPlaceholder,
+      InputProps: {
+        style: { minWidth: '350px' },
+      },
+    },
     state: {
       columnOrder,
       columnVisibility,
@@ -169,6 +179,13 @@ const BaseTable = ({
     onPaginationChange,
     renderTopToolbarCustomActions,
     renderToolbarInternalActions,
+    muiExpandButtonProps: ({ row, table }) => ({
+      onClick: () => table.setExpanded({ [row.id]: !row.getIsExpanded() }),
+      sx: {
+        transform: row.getIsExpanded() ? 'rotate(180deg)' : 'rotate(-90deg)',
+        transition: 'transform 0.2s',
+      },
+    }),
   });
 
   return (
