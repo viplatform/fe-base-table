@@ -1,6 +1,6 @@
 {
   "name": "@viplatform/fe-base-table",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Mui Tanstack React Table",
   "module": "dist/index.js",
   "types": "dist/index.d.ts",
