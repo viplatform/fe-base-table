@@ -3,6 +3,7 @@ import typescript from '@rollup/plugin-typescript';
 import commonjs from '@rollup/plugin-commonjs';
 import dts from 'rollup-plugin-dts';
 import postcss from 'rollup-plugin-postcss';
+import replace from '@rollup/plugin-replace';
 
 export default [
   {
@@ -22,6 +23,12 @@ export default [
       typescript({
         tsconfig: './tsconfig.json',
         exclude: ['**/*.test.tsx', '**/*.test.ts', '**/*.stories.ts'],
+      }),
+      replace({
+        preventAssignment: true,
+        'process.env.REACT_APP_ASSET_BASE_URL': JSON.stringify(
+          process.env.REACT_APP_ASSET_BASE_URL,
+        ),
       }),
       postcss({
         config: {
