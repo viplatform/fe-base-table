@@ -3,6 +3,7 @@ import typescript from '@rollup/plugin-typescript';
 import commonjs from '@rollup/plugin-commonjs';
 import dts from 'rollup-plugin-dts';
 import postcss from 'rollup-plugin-postcss';
+import replace from '@rollup/plugin-replace';
 
 export default [
   {
