@@ -23,6 +23,12 @@ export default [
         tsconfig: './tsconfig.json',
         exclude: ['**/*.test.tsx', '**/*.test.ts', '**/*.stories.ts'],
       }),
+      replace({
+        preventAssignment: true,
+        'process.env.REACT_APP_ASSET_BASE_URL': JSON.stringify(
+          process.env.REACT_APP_ASSET_BASE_URL,
+        ),
+      }),
       postcss({
         config: {
           path: './postcss.config.js',
