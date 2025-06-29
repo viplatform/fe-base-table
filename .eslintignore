@@ -1,0 +1,6 @@
+dist/
+node_modules/
+*.min.js
+*.bundle.js
+coverage/
+.nyc_output/ 
