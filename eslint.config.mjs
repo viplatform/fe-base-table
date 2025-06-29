@@ -5,6 +5,16 @@ import pluginReact from 'eslint-plugin-react';
 
 export default [
   {
+    ignores: [
+      'dist/**',
+      'node_modules/**',
+      '*.min.js',
+      '*.bundle.js',
+      'coverage/**',
+      '.nyc_output/**',
+    ],
+  },
+  {
     files: ['**/*.{js,mjs,cjs,ts,jsx,tsx}'],
     settings: {
       react: {
@@ -16,6 +26,7 @@ export default [
     languageOptions: {
       globals: {
         ...globals.browser,
+        ...globals.node, // Add Node.js globals including 'module'
         process: 'readonly', // Define process as a global variable
       },
     },
