@@ -13,7 +13,7 @@ jobs:
       pull-requests: write
 
     runs-on:
-        labels: [self-hosted, dev-image-builder]
+      labels: [self-hosted, dev-image-builder]
     env:
       CONFIG_TYPE: 'UAT'
       REACT_APP_ASSET_BASE_URL: 'https://assets.viplatform.net/base-table'
@@ -21,7 +21,7 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-        
+
       - name: Install-aws-cli
         uses: unfor19/install-aws-cli-action@v1
 
@@ -34,7 +34,6 @@ jobs:
           aws-region: eu-west-2
           role-duration-seconds: 1200
           role-skip-session-tagging: true
-
 
       - name: Upload files to S3 with AWS CLI
         run: aws s3 sync ./assets/ s3://assets.viplatform.net/base-table --delete
