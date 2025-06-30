@@ -1,28 +1,28 @@
 {
-  "name": "mui-table",
-  "version": "1.0.7",
+  "name": "mui-table-react",
+  "version": "1.0.8",
   "description": "A reusable table component for React applications built with Material-UI (MUI) and TanStack Table.",
   "author": "Bikash Das <bikashdas0108@gmail.com> (https://github.com/bikashdas0108)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/viplatform/mui-table/issues"
+    "url": "https://github.com/viplatform/mui-table-react/issues"
   },
-  "homepage": "https://github.com/viplatform/mui-table#readme",
+  "homepage": "https://github.com/viplatform/mui-table-react#readme",
   "files": [
     "dist"
   ],
-  "main": "./dist/mui-table.es.js",
+  "main": "./dist/mui-table-react.es.js",
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "import": "./dist/mui-table.es.js",
-      "default": "./dist/mui-table.es.js"
+      "import": "./dist/mui-table-react.es.js",
+      "default": "./dist/mui-table-react.es.js"
     }
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/viplatform/mui-table.git"
+    "url": "git+https://github.com/viplatform/mui-table-react.git"
   },
   "keywords": [
     "react",
