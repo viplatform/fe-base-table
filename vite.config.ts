@@ -30,9 +30,9 @@ export default defineConfig({
     lib: {
       formats: ['es'],
       entry: path.resolve(__dirname, 'src/index.ts'),
-      name: 'mui-table',
+      name: 'mui-table-react',
       fileName: (format) => {
-        return `mui-table.${format}.js`;
+        return `mui-table-react.${format}.js`;
       },
     },
     rollupOptions: {

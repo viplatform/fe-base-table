@@ -22,9 +22,13 @@ A reusable table component for React applications built with Material-UI (MUI) a
 ## Installation
 
 ```bash
-npm install mui-table
-# or
-yarn add mui-table
+npm install mui-table-react
+```
+
+or
+
+```bash
+yarn add mui-table-react
 ```
 
 ## Peer Dependencies
@@ -61,7 +65,7 @@ The package includes these dependencies:
 
 ```tsx
 import React from 'react';
-import { MuiTable } from 'mui-table';
+import { MuiTable } from 'mui-table-react';
 
 const MyComponent = () => {
   const data = [
@@ -197,7 +201,7 @@ const MyComponent = () => {
 ### Basic Table
 
 ```tsx
-import { MuiTable } from 'mui-table';
+import { MuiTable } from 'mui-table-react';
 
 const BasicTable = () => {
   const data = [
@@ -217,7 +221,7 @@ const BasicTable = () => {
 ### Advanced Table with Features
 
 ```tsx
-import { MuiTable } from 'mui-table';
+import { MuiTable } from 'mui-table-react';
 
 const AdvancedTable = () => {
   const data = [
@@ -252,7 +256,7 @@ const AdvancedTable = () => {
 ### Server-Side Pagination
 
 ```tsx
-import { MuiTable } from 'mui-table';
+import { MuiTable } from 'mui-table-react';
 import { useState } from 'react';
 
 const ServerSideTable = () => {
@@ -293,20 +297,20 @@ const ServerSideTable = () => {
 
 ### Setup
 
-1. Clone the repository:
+1. **Clone the repository:**
 
-```bash
-git clone https://github.com/viplatform/mui-table.git
-cd mui-table
-```
+   ```bash
+   git clone https://github.com/viplatform/mui-table-react.git
+   cd mui-table-react
+   ```
 
-2. Install dependencies:
+2. **Install dependencies:**
 
 ```bash
 yarn install
 ```
 
-3. Start development:
+3. **Start development:**
 
 ```bash
 yarn dev
